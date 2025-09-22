@@ -1,0 +1,192 @@
+# RAG Configuration for AstroGeo - Using your existing vector DB
+
+vector_database:
+  type: "chromadb"
+  persist_directory: "./data/vector_store/vector_db"
+  collection_name: "astrogeo_knowledge"
+  distance_function: "cosine"
+  use_existing_db: true
+  
+  # Connection settings
+  client_settings:
+    anonymized_telemetry: false
+    allow_reset: true
+    
+  # Collection configuration
+  existing_collections:
+    - "default"
+    - "documents" 
+    - "knowledge_base"
+    # Add any other collection names from your existing DB
+  
+embedding:
+  # Embedding model configuration
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  provider: "huggingface"
+  
+  # Model parameters
+  model_kwargs:
+    device: "cpu"
+    normalize_embeddings: true
+    trust_remote_code: false
+    
+  # Encoding parameters  
+  encode_kwargs:
+    batch_size: 32
+    show_progress_bar: true
+    convert_to_tensor: false
+    normalize_embeddings: true
+
+chunking:
+  # Text splitting configuration
+  chunk_size: 1000
+  chunk_overlap: 200
+  separators: ["\n\n", "\n", " ", ""]
+  length_function: "len"
+  
+  # Preserve existing chunks
+  skip_existing_chunks: true
+  preserve_existing_data: true
+
+retriever:
+  # Search configuration
+  search_type: "similarity"
+  k_results: 5
+  score_threshold: 0.7
+  max_tokens_limit: 4000
+  
+  # Query enhancement
+  enhance_query: true
+  rerank_results: false
+  
+  # Retrieval strategy
+  retrieval_strategy: "basic"
+  include_metadata: true
+
+text_splitter:
+  # Document processing
+  type: "recursive_character"
+  chunk_size: 1000
+  chunk_overlap: 200
+  add_start_index: true
+  strip_whitespace: true
+  
+  # Language specific settings
+  language: "english"
+  separators: ["\n\n", "\n", " ", ""]
+
+document_processing:
+  # Supported file formats
+  supported_formats: 
+    - "pdf"
+    - "txt" 
+    - "md"
+    - "json"
+    - "csv"
+    - "docx"
+    
+  # Processing options
+  metadata_extraction: true
+  content_filtering: true
+  remove_duplicates: true
+  
+  # File handling
+  max_file_size_mb: 50
+  batch_processing: true
+
+knowledge_base:
+  # Existing data paths
+  existing_data:
+    path: "./data/vector_store/vector_db"
+    preserve_structure: true
+    backup_before_changes: true
+    
+  # New data sources
+  astronomy_data:
+    path: "./knowledge/space_data/"
+    auto_update: true
+    update_interval_hours: 24
+    file_patterns: ["*.txt", "*.md", "*.json"]
+  
+  geospatial_data:
+    path: "./knowledge/geospatial_data/"
+    auto_update: true
+    update_interval_hours: 12
+    file_patterns: ["*.txt", "*.md", "*.json"]
+
+cache:
+  # Caching configuration
+  enable_cache: true
+  cache_ttl_seconds: 3600
+  max_cache_size: 1000
+  
+  # Cache storage
+  cache_type: "memory"  # or "disk"
+  cache_directory: "./data/cache/"
+  
+  # Cache policies
+  use_existing_cache: true
+  cache_embeddings: true
+  cache_search_results: true
+
+performance:
+  # Performance optimization
+  batch_processing: true
+  parallel_processing: true
+  max_workers: 4
+  memory_optimization: true
+  
+  # Connection pooling
+  connection_pool_size: 5
+  connection_timeout: 30
+  
+  # Query optimization
+  query_optimization: true
+  index_optimization: true
+
+logging:
+  # Logging configuration
+  log_level: "INFO"
+  log_queries: true
+  log_performance: true
+  
+  # Log files
+  log_file: "./logs/rag.log"
+  max_log_size_mb: 10
+  backup_count: 5
+
+error_handling:
+  # Error handling
+  retry_attempts: 3
+  retry_delay: 1
+  fallback_enabled: true
+  
+  # Error responses
+  on_connection_error: "return_cached"
+  on_search_error: "return_empty"
+  on_embedding_error: "skip_document"
+
+security:
+  # Security settings
+  sanitize_queries: true
+  max_query_length: 1000
+  rate_limiting: false
+  
+  # Access control
+  require_authentication: false
+  allowed_file_types: ["txt", "md", "json", "pdf"]
+
+monitoring:
+  # Monitoring and metrics
+  enable_monitoring: true
+  track_performance: true
+  track_usage: true
+  
+  # Metrics collection
+  collect_embedding_metrics: true
+  collect_search_metrics: true
+  collect_cache_metrics: true
+  
+  # Health checks
+  health_check_interval: 60
+  performance_threshold_ms: 1000

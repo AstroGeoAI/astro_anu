@@ -1,0 +1,155 @@
+data_harvesting_task:
+  description: >
+    Systematically collect comprehensive datasets from NASA, ISRO, ESA, and Bhuvan APIs focusing on {data_categories}. 
+    Validate data integrity, handle API rate limits, process different data formats, and ensure complete data coverage 
+    for the specified time period {time_range}. Include metadata, data quality indicators, and source tracking.
+  expected_output: >
+    Your final answer must be a structured data collection report containing: 
+    1) Total records collected from each API source with timestamps
+    2) Data quality assessment scores and validation results  
+    3) Complete dataset inventory with metadata and source attribution
+    4) Any collection errors, rate limit issues, or data gaps identified
+    5) Recommended next steps for data processing and analysis
+
+multi_api_coordination_task:
+  description: >
+    Orchestrate API calls across NASA, ISRO, ESA, and Bhuvan platforms to optimize data retrieval for {query_topic}.
+    Manage authentication tokens, coordinate rate limits, implement retry logic, and ensure efficient API utilization
+    while maintaining data consistency across different API endpoints and response formats.
+  expected_output: >
+    Your final answer must be an API coordination summary including:
+    1) API call optimization strategy with timing and sequencing details
+    2) Rate limit management report showing usage across all APIs
+    3) Authentication status and token management summary  
+    4) Error handling results and retry attempt outcomes
+    5) Cross-API data consistency validation results
+
+astronomical_analysis_task:
+  description: >
+    Perform comprehensive astronomical analysis on {celestial_objects} using collected space telescope and observatory data.
+    Analyze spectral data, identify patterns, calculate orbital parameters, assess brightness variations, and correlate 
+    observations across different wavelengths and time periods to generate scientific insights.
+  expected_output: >
+    Your final answer must be a detailed astronomical analysis report containing:
+    1) Complete spectral analysis results with wavelength classifications
+    2) Orbital mechanics calculations and trajectory predictions  
+    3) Brightness variation patterns and temporal analysis
+    4) Cross-correlation results between different observation methods
+    5) Scientific significance assessment and discovery recommendations
+
+geospatial_analysis_task:
+  description: >
+    Execute advanced geospatial analysis on satellite imagery and Earth observation data for {geographic_region}.
+    Perform change detection, environmental monitoring, land use classification, and spatial pattern analysis
+    using remote sensing techniques and GIS methodologies to extract actionable intelligence.
+  expected_output: >
+    Your final answer must be a comprehensive geospatial analysis report with:
+    1) Land use/land cover classification results with accuracy metrics
+    2) Change detection analysis showing temporal variations  
+    3) Environmental monitoring indicators and trend analysis
+    4) Spatial pattern recognition results and statistical summaries
+    5) Actionable insights and recommendations for stakeholders
+
+visual_processing_task:
+  description: >
+    Process and analyze visual data from space missions including satellite imagery, telescope photos, and planetary 
+    surface images related to {image_category}. Apply computer vision techniques, enhance image quality, detect features,
+    and extract meaningful information through advanced image processing algorithms.
+  expected_output: >
+    Your final answer must be a visual analysis report containing:
+    1) Image enhancement and processing results with before/after comparisons
+    2) Feature detection and extraction outcomes with confidence scores
+    3) Computer vision analysis results and pattern recognition findings
+    4) Image quality assessment and metadata extraction summary  
+    5) Visual insights and anomaly detection results
+
+daily_monitoring_task:
+  description: >
+    Monitor and compile daily intelligence on space events, astronomical phenomena, and Earth observation changes
+    for {monitoring_date}. Track significant developments, identify emerging patterns, and generate comprehensive
+    daily summaries with priority alerts for critical events requiring immediate attention.
+  expected_output: >
+    Your final answer must be a daily intelligence briefing including:
+    1) Priority alert summary with critical events and severity levels
+    2) Astronomical phenomena tracking report with observation details
+    3) Earth observation changes and environmental monitoring updates
+    4) Emerging pattern identification and trend analysis
+    5) Recommended follow-up actions and monitoring priorities
+
+research_support_task:
+  description: >
+    Provide comprehensive research support for {research_topic} by correlating scientific literature, analyzing 
+    relevant datasets, generating research summaries, and identifying knowledge gaps. Support ongoing investigations
+    with evidence-based insights and methodological recommendations.
+  expected_output: >
+    Your final answer must be a research support document containing:
+    1) Literature review summary with key findings and methodologies  
+    2) Dataset correlation analysis showing relationships and patterns
+    3) Knowledge gap identification and research opportunity assessment
+    4) Evidence-based insights and scientific recommendations
+    5) Methodological guidance and next research steps
+
+quality_validation_task:
+  description: >
+    Perform comprehensive quality assurance on all processed data and analytical results for {dataset_category}.
+    Validate data accuracy, assess completeness, identify anomalies, verify processing integrity, and ensure
+    all outputs meet scientific standards and reliability requirements.
+  expected_output: >
+    Your final answer must be a quality assurance report with:
+    1) Data accuracy validation results with error rate analysis
+    2) Completeness assessment showing coverage and missing data points
+    3) Anomaly detection results with statistical significance tests
+    4) Processing integrity verification and validation outcomes  
+    5) Quality improvement recommendations and corrective actions
+
+predictive_modeling_task:
+  description: >
+    Develop predictive models for {prediction_target} using available space and Earth observation data.
+    Apply machine learning algorithms, statistical analysis, and domain expertise to generate accurate forecasts,
+    assess prediction confidence, and provide actionable predictions for decision-making support.
+  expected_output: >
+    Your final answer must be a predictive analysis report containing:
+    1) Model development summary with algorithm selection rationale
+    2) Prediction accuracy metrics and confidence interval analysis  
+    3) Forecast results with time-series projections and scenarios
+    4) Risk assessment and uncertainty quantification
+    5) Decision support recommendations with actionable insights
+
+3d_visualization_task:
+  description: >
+    Create advanced 3D visualizations and spatial models for {visualization_subject} using processed space data.
+    Develop interactive representations, generate immersive models, and create compelling visual narratives
+    that enhance understanding of complex spatial relationships and phenomena.
+  expected_output: >
+    Your final answer must be a 3D visualization deliverable including:
+    1) Interactive 3D model specifications and technical details
+    2) Spatial relationship analysis and dimensional accuracy metrics
+    3) User interaction capabilities and navigation features  
+    4) Visual narrative structure and educational content
+    5) Technical implementation guide and deployment instructions
+
+collaborative_synthesis_task:
+  description: >
+    Coordinate and synthesize findings from multiple analytical domains for {research_objective}.
+    Integrate astronomical, geospatial, predictive, and visual analyses to generate comprehensive insights,
+    identify cross-domain patterns, and provide unified conclusions for complex space research questions.
+  expected_output: >
+    Your final answer must be a collaborative synthesis report with:
+    1) Cross-domain analysis integration showing unified findings  
+    2) Pattern correlation results across different analytical approaches
+    3) Comprehensive insight synthesis with scientific significance
+    4) Unified conclusions addressing the research objective
+    5) Recommendations for further collaborative research directions
+
+anomaly_detection_task:
+  description: >
+    Systematically detect and analyze anomalies in space and Earth observation data for {monitoring_parameters}.
+    Apply statistical methods, machine learning algorithms, and domain expertise to identify unusual patterns,
+    assess significance, and generate appropriate alerts for stakeholders and early warning systems.
+  expected_output: >
+    Your final answer must be an anomaly detection report containing:
+    1) Anomaly identification results with statistical significance scores
+    2) Pattern deviation analysis and baseline comparison data
+    3) Risk assessment and potential impact evaluation  
+    4) Alert generation summary with severity classifications
+    5) Monitoring recommendations and early warning system updates

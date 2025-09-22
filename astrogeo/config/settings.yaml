@@ -1,0 +1,73 @@
+# AstroGeo Global Project Settings
+
+application:
+  name: "AstroGeo"
+  version: "1.0.0"
+  description: "AI system with CrewAI agents for astronomy and geospatial data"
+  environment: "development"
+
+data_processing:
+  update_interval_days: 1
+  batch_size: 100
+  max_concurrent_jobs: 5
+  data_retention_days: 365
+
+logging:
+  log_level: "INFO"
+  log_format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} | {message}"
+  log_file: "./logs/astrogeo.log"
+  max_log_file_size: "10 MB"
+  backup_count: 5
+
+monitoring:
+  enable_monitoring: true
+  metrics_port: 8001
+  health_check_interval: 30
+  performance_tracking: true
+
+authentication:
+  enable_authentication: true
+  jwt_expire_minutes: 30
+  max_login_attempts: 5
+  session_timeout_minutes: 120
+
+api:
+  api_port: 8000
+  max_request_size: "50 MB"
+  cors_enabled: true
+  rate_limiting: true
+  request_timeout: 300
+
+database:
+  vector_db_path: "./data/vector_store"
+  backup_enabled: true
+  backup_interval_hours: 6
+  connection_pool_size: 10
+
+external_apis:
+  nasa:
+    base_url: "https://api.nasa.gov"
+    rate_limit_per_hour: 1000
+    timeout_seconds: 30
+  
+  isro:
+    base_url: "https://bhuvan.nrsc.gov.in/api"
+    rate_limit_per_hour: 500
+    timeout_seconds: 45
+  
+  esa:
+    base_url: "https://scihub.copernicus.eu"
+    rate_limit_per_hour: 300
+    timeout_seconds: 60
+
+crew_ai:
+  process_type: "sequential"
+  max_execution_time: 1800
+  verbose_logging: true
+  memory_enabled: true
+
+performance:
+  max_workers: 8
+  enable_caching: true
+  cache_ttl_hours: 6
+  optimize_memory: true
